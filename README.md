@@ -29,7 +29,7 @@ crontab for root
 
 - command line, delete ipv4.example.com record
 ```
-/usr/local/sbin/dns-cf-v4.zsh -d ipv6.example.com -t A -r
+/usr/local/sbin/dns-cf-v4.zsh -d ipv4.example.com -t A -r
 ```
 - command line, delete ipv6.example.com record
 ```
