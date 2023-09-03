@@ -18,7 +18,7 @@ api_token=
 
 crontab for root
 ```
-# update ipv4.example.com, 
+# update ipv4.example.com, config file /root/.config/dns-cf-v4/example.com.conf
 */11 * * * * /usr/local/sbin/dns-cf-v4.zsh -d ipv4.example.com -t A 2>&1 >/dev/null
 
 # update ipv6.example.com, config file /root/.config/dns-cf-v4/example.com.conf
