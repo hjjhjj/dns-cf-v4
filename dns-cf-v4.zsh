@@ -11,6 +11,7 @@ set -o pipefail
 # Can update HOST ipv4 and ipv6(eui64) and VMs ipv6(eui64)
 
 # curl https://raw.githubusercontent.com/hjjhjj/dns-cf-v4/main/dns-cf-v4.zsh > /usr/local/sbin/dns-cf-v4.zsh && chmod +x /usr/local/sbin/dns-cf-v4.zsh
+
 # suppose that zone name is example.com
 # config file is /root/.config/dns-cf-v4/example.com.conf
 
@@ -152,9 +153,9 @@ usage()
     echo "dns-cf-v4.zsh -d domain # domain record to be processed"
     echo "              -t A|AAAA # record type , A for ipv4, AAAA for ipv6"
     echo "              -r        # remove the domain record"
-    echo "              -i        # ipv6, bridge interface name, such as br0"
-    echo "              -s        # ipv6 suffix, 1234:5678:90ab:cdef"
-    echo "              -f        # force set ipv4/v6 address to the given value"
+    echo "              -i ifname # ipv6, bridge interface name, such as br0"
+    echo "              -s suffix # ipv6 suffix, 1234:5678:90ab:cdef"
+    echo "              -f ip     # force set ipv4/v6 address to the given value"
     exit 0
 }
 
