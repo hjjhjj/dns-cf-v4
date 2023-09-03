@@ -231,6 +231,11 @@ currentStat=$(listRecord "$zone_id" "$domain" "$record_type" "$api_token")
 resourceId=$(echo "$currentStat" | sed -n '1p')
 currentValue=$(echo "$currentStat" | sed -n '2p')
 
+if [ "$FORCE_IP" != "" ]; then
+    echo "force set ip: $FORCE_IP"
+    externalIpAdd=$FORCE_IP
+fi
+
 if [ -z $resourceId ]  ; then
     if [ $DEL_RECORD = false ]; then
         createdRecordResourceId=$(createRecord "$zone_id" "$domain" "$api_token" "$record_type" "$externalIpAdd")
@@ -240,10 +245,7 @@ if [ -z $resourceId ]  ; then
         return 5 # can not delete without resourceId.
     fi
 fi
-if [ "$FORCE_IP" != "" ]; then
-    echo "force set ip: $FORCE_IP"
-    externalIpAdd=$FORCE_IP
-fi
+
 if [ $DEL_RECORD = true ]; then
     deleteRecord "$zone_id" "$resourceId" "$api_token"
     echo "del domain record: $domain OK!"
