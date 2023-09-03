@@ -1,4 +1,5 @@
 # dns-cf-v4
+- Support CloudFlare multi zones (different config file)
 - Update your CloudFlare DNS record to the ipv4/v6
 - Delete your CloudFlare DNS record (ipv4/v6)
 - Run in HOST with many VMs who use HOST's bridge interface
