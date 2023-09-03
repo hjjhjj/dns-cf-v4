@@ -24,13 +24,13 @@ set -o pipefail
 # */11 * * * * /usr/local/sbin/dns-cf-v4.zsh -d ipv4.example.com -t A 2>&1 >/dev/null
 
 # update ipv6.example.com, config file /root/.config/dns-cf-v4/example.com.conf
-# get ipv6 prefix from bridge interface br0 of HOST, -s setup ipv6 suffix of VM
+# get ipv6 prefix from bridge interface br0 of HOST, -s setup ipv6 suffix of HOST/VM
 # NOTE: ping -6 ipv6.example.com a few miniutes later to make sure \
 #       prefix:suffix IS EXACTLY MATCH dns server response. ( :0dad: is different to :dad: )
 # */17 * * * * /usr/local/sbin/dns-cf-v4.zsh -d ipv6.example.com -t AAAA -i br0 -s 5054:ff:fe12:3456 2>&1 >/dev/null
 
 # command line, delete ipv4.example.com record
-# /usr/local/sbin/dns-cf-v4.zsh -d ipv6.example.com -t A -r
+# /usr/local/sbin/dns-cf-v4.zsh -d ipv4.example.com -t A -r
 
 # command line, delete ipv6.example.com record
 # /usr/local/sbin/dns-cf-v4.zsh -d ipv6.example.com -t AAAA -r
