@@ -4,6 +4,7 @@ set -o err_return
 set -o no_unset
 set -o pipefail
 
+# Support CloudFlare multi zones (different config file)
 # Update your CloudFlare DNS record to the ipv4/v6
 # Delete your CloudFlare DNS record (ipv4/v6)
 # Run in HOST with many VMs who use HOST's bridge interface
@@ -20,7 +21,7 @@ set -o pipefail
 # # End conf file
 
 # crontab for root
-# update ipv4.example.com, 
+# update ipv4.example.com
 # */11 * * * * /usr/local/sbin/dns-cf-v4.zsh -d ipv4.example.com -t A 2>&1 >/dev/null
 
 # update ipv6.example.com, config file /root/.config/dns-cf-v4/example.com.conf
@@ -211,14 +212,15 @@ if [ $DEL_RECORD = false ] && [ "$FORCE_IP" = "" ]; then
     if [ "$record_type" = "A" ]; then
         externalIpAdd=$(getIpv4Address)
         echo "external ipv4 address: $externalIpAdd"
-    fi
-    if [ $record_type = "AAAA" ]; then
+    elif [ $record_type = "AAAA" ]; then
         if [ -z $IFNAME ] || [ -z $SUFFIX ]; then
             echo "AAAA need ifname and suffix!"
             return 10
         fi
         externalIpAdd=$(getIpv6Address "$SUFFIX" "$IFNAME")
         echo "external ipv6 address: $externalIpAdd"
+    else
+        return 6
     fi
 fi
 
