@@ -10,6 +10,7 @@ set -o pipefail
 # Run in HOST with many VMs who use HOST's bridge interface
 # Can update HOST ipv4 and ipv6(eui64) and VMs ipv6(eui64)
 
+# curl https://raw.githubusercontent.com/hjjhjj/dns-cf-v4/main/dns-cf-v4.zsh > /usr/local/sbin/dns-cf-v4.zsh && chmod +x /usr/local/sbin/dns-cf-v4.zsh
 # suppose that zone name is example.com
 # config file is /root/.config/dns-cf-v4/example.com.conf
 
