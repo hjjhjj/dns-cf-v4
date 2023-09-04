@@ -16,7 +16,7 @@ set -o pipefail
 # config file is /root/.config/dns-cf-v4/example.com.conf
 
 # # conf file, don't add space after '='
-# # get zone_id from https://dash.coudflare.com, Websites Overview
+# # get zone_id from https://dash.cloudflare.com, Websites Overview
 # zone_id=
 # # get api_token from https://dash.cloudflare.com/profile/api-tokens
 # api_token=
