@@ -162,8 +162,8 @@ usage()
 # use domain flow if you have many wan ip
 getIpv4Address()
 {
-    curl -s ipv4.ident.me
-    # curl -s  ifconfig.co
+    # curl -s ipv4.ident.me
+    curl -s -4 ifconfig.co
     # curl -s ipv4.nsupdate.info/myip
 }
 
